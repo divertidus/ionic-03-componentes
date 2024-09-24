@@ -1,6 +1,9 @@
 <app-header titulo="action sheet"></app-header>
 
 
-<ion-content [fullscreen]="true">
-
+<ion-content [fullscreen]="true" class="ion-padding">
+    <ion-button id="open-action-sheet" expand="block">
+        Mostrar action-sheet
+    </ion-button>
+    <ion-action-sheet trigger="open-action-sheet" backdropDismiss="false" header="Acciones" subHeader="Selecciona una opcion" [buttons]="actionSheetButtons"></ion-action-sheet>
 </ion-content>
