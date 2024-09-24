@@ -1,10 +1,45 @@
 <app-header titulo="alert"></app-header>
 
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">alert</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <!-- Uso este div solo para usar la clase y un css en alert.page.css para centrar el boton, porque si. -->
+  <div class="button-container">
+    <ion-button id="alerta1">Alerta1</ion-button>
+    <ion-button (click)="presentSecondAlert()">Alerta 2</ion-button>
+  </div>
+
+
+
+
+  <!-- He definido las propiedades siguientes en el alert.page.ts de manera que ahora desde aqui llamo a esas propiedades,
+      de esa forma puedo cambiar los valores en tiempo de ejcucionj si fuese necesario -->
+  <ion-alert [backdropDismiss]="alertBackdropDismiss" trigger="alerta1" [header]="alertHeader"
+    [subHeader]="alertSubHeader" [message]="alertMessage" [buttons]="alertButtons"></ion-alert>
+
+  <ion-alert [backdropDismiss]="alertBackdropDismiss" trigger="present-alerta2" [header]="alertHeader"
+    [subHeader]="alertSubHeader" [message]="alertMessage" [buttons]="alertButtons"></ion-alert>
+
+
+
+
+  <!--   Asi estaba decladaro en el propio html antes.
+        <ion-alert  backdropDismiss="true"
+        trigger="present-alert" 
+        header="Titulo del alert" 
+        subHeader="Subtítulo del alert"
+        message="Mensaje a mostrar, soy un alert" 
+        [buttons]="alertButtons"></ion-alert>
+        -->
+
 </ion-content>
+
+<!-- 
+ENTENDER COMO SE ABRE CADA Alerta
+PROBAR A USAR TRIGER EN VEZ DE CLICK PARA AMBAS ALERTAS, PREGUNTAR AL CHAT O A CLAUDE
+ -->
