@@ -9,7 +9,7 @@ import { HeaderComponent } from "../../components/header/header.component";
   templateUrl: './avatar.page.html',
   styleUrls: ['./avatar.page.scss'],
   standalone: true,
-  imports: [IonItem, IonList, IonLabel, IonChip, IonImg, IonAvatar, IonIcon, IonButton, IonBackButton, 
+  imports: [IonItem, IonList, IonLabel, IonChip, IonImg, IonAvatar, IonIcon, IonButton, IonBackButton,
     IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent]
 })
 export class AvatarPage implements OnInit {
