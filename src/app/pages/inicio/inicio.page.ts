@@ -23,7 +23,7 @@ export class InicioPage implements OnInit {
   /*Creo componentes indicando que será de tipo Componente para que tenga que implementar lo que pusimos en la interfaz superior.*/
   componentes: Componente[] = [
     {
-      icon: 'american-football',
+      icon: 'american-football-outline',
       name: 'Action Sheet',
       redirectTo: '/action-sheet'
     },
@@ -56,6 +56,11 @@ export class InicioPage implements OnInit {
       icon: 'checkbox-outline',
       name: 'Checkbox',
       redirectTo: '/checkbox'
+    },
+    {
+      icon: 'calendar-outline',
+      name: 'Datetime',
+      redirectTo: '/datetime'
     }
   ]
 
