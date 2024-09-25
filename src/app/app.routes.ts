@@ -20,5 +20,9 @@ export const routes: Routes = [
   {
     path: 'action-sheet',
     loadComponent: () => import('./pages/action-sheet/action-sheet.page').then( m => m.ActionSheetPage)
+  },
+  {
+    path: 'patata',
+    loadComponent: () => import('./pages/patata/patata.page').then( m => m.PatataPage)
   }
 ];

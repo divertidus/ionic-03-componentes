@@ -10,8 +10,12 @@
 
   <!-- Uso este div solo para usar la clase y un css en alert.page.css para centrar el boton, porque si. -->
   <div class="button-container">
+    <!--  Forma 1  -->
+
     <ion-button id="alerta1">Alerta1</ion-button>
+    <!-- Forma 2 -->
     <ion-button (click)="presentSecondAlert()">Alerta 2</ion-button>
+    <ion-button (click)="terceraAlerta()">Alerta 3</ion-button>
   </div>
 
 
@@ -19,11 +23,12 @@
 
   <!-- He definido las propiedades siguientes en el alert.page.ts de manera que ahora desde aqui llamo a esas propiedades,
       de esa forma puedo cambiar los valores en tiempo de ejcucionj si fuese necesario -->
+
+  <!-- Esto es solo para la forma 1 -->
   <ion-alert [backdropDismiss]="alertBackdropDismiss" trigger="alerta1" [header]="alertHeader"
     [subHeader]="alertSubHeader" [message]="alertMessage" [buttons]="alertButtons"></ion-alert>
 
-  <ion-alert [backdropDismiss]="alertBackdropDismiss" trigger="present-alerta2" [header]="alertHeader"
-    [subHeader]="alertSubHeader" [message]="alertMessage" [buttons]="alertButtons"></ion-alert>
+
 
 
 

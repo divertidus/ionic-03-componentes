@@ -31,6 +31,11 @@ export class InicioPage implements OnInit {
       icon: 'megaphone-outline',
       name: 'Alert',
       redirectTo: '/alert'
+    },
+    {
+      icon: 'pizza-outline',
+      name: 'Patata',
+      redirectTo: '/patata'
     }
   ]
 
