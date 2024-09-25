@@ -1,0 +1,126 @@
+<app-header titulo="ChechBox"></app-header>
+
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <h2>Uso básico</h2>
+
+  <ion-checkbox>Normal sin nada</ion-checkbox><br>
+  <ion-checkbox checked="true">Con checked en true</ion-checkbox><br>
+  <ion-checkbox disabled="true">Con disabled en true</ion-checkbox><br>
+  <ion-checkbox disabled="true" checked="true">Con disabled y checked en true</ion-checkbox><br>
+  <ion-checkbox color="primary" checked="true">Con color primary y checked</ion-checkbox><br>
+  <ion-checkbox color="secondary" checked="true">Con color secondary y checked</ion-checkbox><br>
+  <ion-checkbox color="danger" checked="true">Con color danger y checked</ion-checkbox><br>
+  <ion-checkbox color="light" checked="true">Con color light y checked</ion-checkbox><br>
+  <ion-checkbox color="dark" checked="true">Con color dark y checked</ion-checkbox><br>
+
+  <h2>Lista Con ngfor para cargar valores</h2>
+
+  <ion-list>
+    <ion-item *ngFor="let c of entry">
+      <ion-checkbox labelPlacement="end" justify="start">{{c.val}}</ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <h2>Lista carga colores variable y se obtiene si están o no marcados</h2>
+
+  <ion-list>
+    <ion-item *ngFor="let it of data" (click)="onClick(it)"> <!-- Con esto envio el it clickado al metodo onClick -->
+      <!-- A continuación el uso de [(ngModel)] en vez de [checked]es debido a que la primera opcion ofrece bidireccinalidad,
+      es decir, tambien modifica el estado asignado a it.selected en función de si está o no marcado. La opción de checked solo
+      lo comprueba inicialmente, a partir de ahi el checkbox guarda el estado y debo obtenerlo o cambiar it.selected con algun evento.
+      en resumen, mejor el ngModel -->
+      <ion-checkbox [color]="it.name" [(ngModel)]="it.selected">{{it.name}}</ion-checkbox>
+    </ion-item>
+    <ion-button (click)="verData()" expand="block">
+      Ver data
+    </ion-button>
+  </ion-list>
+
+
+  <h2>Uso de Label Placement</h2>
+  <ion-checkbox labelPlacement="start">Label at the Start</ion-checkbox>
+  <br />
+  <ion-checkbox labelPlacement="end">Label at the End</ion-checkbox>
+  <br />
+  <ion-checkbox labelPlacement="fixed">Fixed Width Label</ion-checkbox>
+  <br />
+  <ion-checkbox labelPlacement="stacked">Stacked Label</ion-checkbox>
+
+  <h2>Alignement</h2>
+  <ion-list>
+    <ion-item>
+      <ion-checkbox label-placement="stacked" alignment="start">Aligned to the Start</ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox label-placement="stacked" alignment="center">Aligned to the Center</ion-checkbox>
+    </ion-item>
+
+  </ion-list>
+
+  <h2>Justificar</h2>
+  <ion-list>
+    <ion-item>
+      <ion-checkbox justify="start">Packed at the Start of Line</ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox justify="end">Packed at the End of Line</ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox justify="space-between">Space Between Label and Control</ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <h2>Indeterminate Checkbox</h2>
+  <ion-checkbox [indeterminate]="true">Indeterminate checkbox</ion-checkbox>
+
+  <h2>Links dentro de labels</h2>
+  <ion-checkbox>I agree to the <a href="#" (click)="$event.stopPropagation()">terms and conditions</a></ion-checkbox>
+
+
+
+  <h2>Uso de Sintaxis moderna</h2><br>
+  <!-- Basic -->
+
+  <!-- Before -->
+  <ion-item>
+    <ion-label>Checkbox Label</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+
+  <!-- After -->
+  <ion-item>
+    <ion-checkbox>Checkbox Label</ion-checkbox>
+  </ion-item>
+
+  <!-- Fixed Labels -->
+
+  <!-- Before -->
+  <ion-item>
+    <ion-label position="fixed">Checkbox Label</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+
+  <!-- After -->
+  <ion-item>
+    <ion-checkbox label-placement="fixed">Checkbox Label</ion-checkbox>
+  </ion-item>
+
+  <!-- Checkbox at the start of line, Label at the end of line -->
+
+  <!-- Before -->
+  <ion-item>
+    <ion-label slot="end">Checkbox Label</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+
+  <!-- After -->
+  <ion-item>
+    <ion-checkbox label-placement="end">Checkbox Label</ion-checkbox>
+  </ion-item>
+
+</ion-content>
