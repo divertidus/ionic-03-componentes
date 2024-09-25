@@ -46,9 +46,14 @@ export class InicioPage implements OnInit {
       icon: 'keypad-outline',
       name: 'Buttons',
       redirectTo: '/buttons'
+    },
+    {
+      icon: 'card-outline',
+      name: 'Cards',
+      redirectTo: '/card'
     }
   ]
-  
+
   constructor() { }
 
   ngOnInit() {
