@@ -22,21 +22,19 @@
     </ion-header>
     <ion-content class="ion-padding">
       <h2>Select an overlay type:</h2>
+      <!-- ngModel debe estar en el ion-radio-group -->
       <ion-radio-group [(ngModel)]="menuType">
         <ion-item>
-          <ion-radio value="overlay">
-            <code>overlay</code>
-          </ion-radio>
+          <ion-label>Overlay</ion-label>
+          <ion-radio slot="start" value="overlay"></ion-radio>
         </ion-item>
         <ion-item>
-          <ion-radio value="reveal">
-            <code>reveal</code>
-          </ion-radio>
+          <ion-label>Reveal</ion-label>
+          <ion-radio slot="start" value="reveal"></ion-radio>
         </ion-item>
         <ion-item>
-          <ion-radio value="push">
-            <code>push</code>
-          </ion-radio>
+          <ion-label>Push</ion-label>
+          <ion-radio slot="start" value="push"></ion-radio>
         </ion-item>
       </ion-radio-group>
       <br />

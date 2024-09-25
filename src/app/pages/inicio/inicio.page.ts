@@ -36,9 +36,14 @@ export class InicioPage implements OnInit {
       icon: 'pizza-outline',
       name: 'Patata',
       redirectTo: '/patata'
+    },
+    {
+      icon: 'person-outline',
+      name: 'Avatar',
+      redirectTo: '/avatar'
     }
   ]
-
+  
   constructor() { }
 
   ngOnInit() {
