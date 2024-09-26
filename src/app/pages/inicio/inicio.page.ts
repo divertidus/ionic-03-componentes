@@ -66,6 +66,11 @@ export class InicioPage implements OnInit {
       icon: 'calendar',
       name: 'Datetime sin acordion',
       redirectTo: '/datetime2'
+    },
+    {
+      icon: 'calendar',
+      name: 'Fab - Floating Action Button',
+      redirectTo: '/fab'
     }
   ]
 

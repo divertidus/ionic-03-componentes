@@ -48,5 +48,9 @@ export const routes: Routes = [
   {
     path: 'datetime2',
     loadComponent: () => import('./pages/datetime2/datetime2.page').then( m => m.Datetime2Page)
+  },
+  {
+    path: 'fab',
+    loadComponent: () => import('./pages/fab/fab.page').then( m => m.FabPage)
   }
 ];
