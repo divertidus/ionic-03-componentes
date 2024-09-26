@@ -1,0 +1,62 @@
+<app-header titulo="Input Forms 2"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-list>
+
+    <!-- Vamos a validar el formulario y para ello haremos uso de una opcion de angular, en el form declaramos esa variabnle #formulario
+    y la asociamos con ngForm, no necesitamos importar nada poruqe si vemos en el ts ya se importan siempre 
+    los import { FormsModule } from '@angular/forms'
+    Podemos usar la variable mediante {{formulario.METODO}} como para el valid en el label que nos dirá si es true o false.
+    Ponemos en el email el required="true" pero si no asociamos el campo, angular no puede comprobarlo y siempre es true. -->
+
+    <!-- Si queremos enviar todo el formulario lo ponemos como parametro del metodo. En el metodo del ts tendriamos esto:
+    
+    onSubmit(formulario:NgForm) {
+      console.log('Se pulso Enter')
+      console.log(this.usuario) 
+      }
+       -->
+    <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+
+      <ion-list-header>
+        <ion-label>Formulario Válido: {{formulario.valid}}</ion-label>
+      </ion-list-header>
+
+      <!--  Para poder comprobar con angular:
+      1. le ponemos name="email" 
+      2. asociamos al ngmodel, hemos creado un objeto usuario con email y password
+       así que haremos [(ngModel)] = "usuario.email"
+      3. Ya puedo ver que si el email está vacio, el form se establece en false.
+      4. Ahora debemos comprobar que sea un email valido, usaremos una exprescion regular. 
+      No entramos en como se hacen, la copiamos de internet.
+      Por ejemplo : ^[^@]+@[^@]+\.[a-zA-Z]{2,}$
+      5. Usamos en el input pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
+      6. Vemos que con "Enter" no pasa nada cuando el formualrio es valido. vamos a arreglarlo:
+      7. Añadimos arriba al form esto: (ngSubmit)="onSubmit()" y en el ts creamos el metodo onSubmit()
+      8. A ese metodo le ponemos una salida por consola como Se pulso Enter
+      9. Creamos un boton de tipo submit. Para manejarlo le pongo que sea o no disabled en funcion de si
+      el formuarlio es valido o no, y listo !
+      Hay diversas formas: 
+      disabled="{{!formulario.valid}}" 
+      disabled="{{formulario.invalid}}"
+      [disabled]="formulario.invalid"
+      [disabled]="!formulario.valid"
+      
+      -->
+      <ion-item>
+        <ion-input label="Email:" type="email" name="email" [(ngModel)]="usuario.email" placeholder="Introduce Email"
+          required="true" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Password:" type="password" name="password" [(ngModel)]="usuario.password"
+          placeholder="Introduce Password" required="true"></ion-input>
+      </ion-item>
+
+      <ion-button class="ion-padding-top" type="submit" [disabled]="!formulario.valid" expand="block">Login</ion-button>
+    </form>
+
+  </ion-list>
+
+</ion-content>

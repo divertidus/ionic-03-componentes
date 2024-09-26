@@ -90,6 +90,11 @@ export class InicioPage implements OnInit {
       icon: 'pencil-outline',
       name: 'Input Forms',
       redirectTo: '/input'
+    },
+    {
+      icon: 'reader-outline',
+      name: 'Input Forms 2',
+      redirectTo: '/input2'
     }
 
   ]
