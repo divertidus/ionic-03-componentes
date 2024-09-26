@@ -1,0 +1,34 @@
+<app-header titulo="DateTime2"></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <!-- Ion Item que actúa como botón para abrir el selector de fecha -->
+    <ion-item>
+      <ion-label>Fecha de Nacimiento</ion-label>
+      <!-- Ion Datetime Button es un componente especial que abre el modal con el datetime -->
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+    </ion-item>
+
+    <!-- Ion Modal que contiene el Ion Datetime -->
+    <!-- [keepContentsMounted]="true" mantiene el contenido del modal en el DOM, mejorando el rendimiento -->
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <!-- Ion Datetime es el componente principal para seleccionar fechas -->
+        <ion-datetime id="datetime" presentation="date" [preferWheel]="true" [showDefaultButtons]="false"
+          [min]="fechaMin" [max]="fechaMax" [(ngModel)]="fechaNaci" (ionChange)="onDateChange($event)">
+          <!-- Botones personalizados para confirmar o cancelar la selección -->
+          <ion-buttons slot="buttons">
+            <ion-button color="danger" (click)="cancelDate()">Cancelar</ion-button>
+            <ion-button color="primary" (click)="confirmDate()">Confirmar</ion-button>
+          </ion-buttons>
+        </ion-datetime>
+      </ng-template>
+    </ion-modal>
+
+    <!-- Elemento para mostrar la fecha seleccionada -->
+    <ion-item>
+      <ion-label>Fecha seleccionada:</ion-label>
+      <ion-text>{{ fechaFormateada }}</ion-text>
+    </ion-item>
+  </ion-list>
+</ion-content>

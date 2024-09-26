@@ -59,8 +59,13 @@ export class InicioPage implements OnInit {
     },
     {
       icon: 'calendar-outline',
-      name: 'Datetime',
+      name: 'Datetime accordion',
       redirectTo: '/datetime'
+    },
+    {
+      icon: 'calendar',
+      name: 'Datetime sin acordion',
+      redirectTo: '/datetime2'
     }
   ]
 
