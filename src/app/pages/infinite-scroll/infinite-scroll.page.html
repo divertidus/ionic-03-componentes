@@ -1,0 +1,24 @@
+<app-header titulo="Infinite Scroll"></app-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of data; let i = index">
+      <ion-avatar slot="start">
+        <img [src]="'https://picsum.photos/80/80?random=' + i" alt="avatar" />
+      </ion-avatar>
+      <ion-label>Item {{ i+1 }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content loadingText="Please wait..." loadingSpinner="bubbles"></ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+
+  <!-- El threshold indica en que momento empieza a cargar de nuevo -->
+  <!--  el [disabled] = "true" hace que no cargue, es una forma de controlar el flujo de cuando parar cambiandolo desde el codigo
+   pero hay mejores formas -->
+   <!-- Vamos a usar el @ViewChild en el codigo para tener una referencia a esto desde alli -->
+  <ion-infinite-scroll threshold="100px" [disabled]="false" (ionInfinite)="loadData()">
+    <ion-infinite-scroll-content loadingText="Cargando más información" loadingSpinner="crescent">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

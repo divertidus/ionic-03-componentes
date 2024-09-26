@@ -60,5 +60,9 @@ export const routes: Routes = [
   {
     path: 'grid',
     loadComponent: () => import('./pages/grid/grid.page').then( m => m.GridPage)
+  },
+  {
+    path: 'infinite-scroll',
+    loadComponent: () => import('./pages/infinite-scroll/infinite-scroll.page').then( m => m.InfiniteScrollPage)
   }
 ];
