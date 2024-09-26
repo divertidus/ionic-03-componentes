@@ -56,5 +56,9 @@ export const routes: Routes = [
   {
     path: 'custom-colors',
     loadComponent: () => import('./pages/custom-colors/custom-colors.page').then( m => m.CustomColorsPage)
+  },
+  {
+    path: 'grid',
+    loadComponent: () => import('./pages/grid/grid.page').then( m => m.GridPage)
   }
 ];

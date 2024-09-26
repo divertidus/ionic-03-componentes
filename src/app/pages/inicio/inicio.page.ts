@@ -76,6 +76,11 @@ export class InicioPage implements OnInit {
       icon: 'color-palette-outline',
       name: 'Colores personalizados SCSS',
       redirectTo: '/custom-colors'
+    },
+    {
+      icon: 'grid-outline',
+      name: 'Grid Row Col',
+      redirectTo: '/grid'
     }
   ]
 
