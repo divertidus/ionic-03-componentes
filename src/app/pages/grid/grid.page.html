@@ -1,34 +1,87 @@
 <app-header titulo="Grid"></app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-grid fixed>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h3>Ejemplo del tamaño 12 con botones</h3>
+  <!-- Por defecto el grid tiene un tamaño de 12 de modo que con las columnas podemos jugar con eso. Si asignamos a una columna el tamaño
+  12 entonces solo un elemento entrará, si ponemos tamaño 3 pues entraran 4, dejo debajo el ejemplo ilustrado con botones
+  para que ilustrarlo -->
+  <ion-grid fixed fixed="false">
     <ion-row>
-      <ion-col size="12">12</ion-col>
-      <ion-col size="6">6</ion-col>
-      <ion-col size="6">6</ion-col>
-      <ion-col size="3">3</ion-col>
-      <ion-col size="3">3</ion-col>
-      <ion-col size="3">3</ion-col>
-      <ion-col size="3">3</ion-col>
+      <ion-col size="12"><ion-button expand="block" fill="solid" shape="round">12</ion-button></ion-col>
+
+      <ion-col size="6"><ion-button expand="block" fill="solid" shape="round">6</ion-button></ion-col>
+      <ion-col size="6"><ion-button expand="block" fill="solid" shape="round">6</ion-button></ion-col>
+
+      <ion-col size="4"><ion-button expand="block" fill="solid" shape="round">4</ion-button></ion-col>
+      <ion-col size="4"><ion-button expand="block" fill="solid" shape="round">4</ion-button></ion-col>
+      <ion-col size="4"><ion-button expand="block" fill="solid" shape="round">4</ion-button></ion-col>
+
+      <ion-col size="3"><ion-button expand="block" fill="solid" shape="round">3</ion-button></ion-col>
+      <ion-col size="3"><ion-button expand="block" fill="solid" shape="round">3</ion-button></ion-col>
+      <ion-col size="3"><ion-button expand="block" fill="solid" shape="round">3</ion-button></ion-col>
+      <ion-col size="3"><ion-button expand="block" fill="solid" shape="round">3</ion-button></ion-col>
+
+      <ion-col size="2"><ion-button expand="block" fill="solid" shape="round">2</ion-button></ion-col>
+      <ion-col size="2"><ion-button expand="block" fill="solid" shape="round">2</ion-button></ion-col>
+      <ion-col size="2"><ion-button expand="block" fill="solid" shape="round">2</ion-button></ion-col>
+      <ion-col size="2"><ion-button expand="block" fill="solid" shape="round">2</ion-button></ion-col>
+      <ion-col size="2"><ion-button expand="block" fill="solid" shape="round">2</ion-button></ion-col>
+      <ion-col size="2"><ion-button expand="block" fill="solid" shape="round">2</ion-button></ion-col>
+
       <br><br>
     </ion-row>
   </ion-grid>
 
-  <ion-grid>
+  <h3>Modificaciones dináminas de tamaño</h3>
+
+  <!-- Si ponemos el fixed = "true" o solo fixed. Cuando probemos a estirar la ventana del navegador
+  veremos como en lugar de crecer las tarjetas, dejará un margen en los laterales
+  pero veremos como solo para el grid ya que los h3 se mantendrán contra los extremos.
+  Consultar el fixed de la documentacion pero en resumen hará que el tamaño maximo del grid
+  sea fijo dependiendo del tamaño de pantalla 
+  
+  El primer grid lo pongo en fixed false y el segundo true para ver diferencia-->
+  <ion-grid fixed="true">
     <ion-row>
       <!-- Con este ngFor adaptarian al tamaño establecido de 12 que tiene el grid, 
        pero al añadir mas contenido aparte de las imagenes irá colocándolo de modo que entre. pero dependera del tamaño de pantalla
-       y de la orientacion siempre y cuando mantengamos el responsive  -->
-      <ion-col *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12]">
+       y de la orientacion siempre y cuando mantengamos el responsive. Esto es sin tener el  ion-col size="12 -->
+
+      <!-- Si le establezco al ion-col el tamaño 12  ya que la imagen y demás es grande, veré bastante bien todo pero solo
+        en vertical y en pantalla pequeña. En grande sería demasiado y en horizontal sale cortado verticalmente, no es cómodo.
+        Sería mejor si entrasen varias columnas en ese caso.
+        Si desactivamos responsive y cambiamos el tamaño de la ventana 
+        del navegador veremos como funciona más rapidamente -->
+
+      <!-- Para ello tenemos la opcion de size-lg que sería para pantallas grandes y 
+        ahi le puedo decir que el tamaño sea de 3. Sin ser responsive siempre seran 4 columnas en ese caso.
+        
+        Para pantallas muy grandes tendria sizeXl
+        Para pantallas grandes tendria sizeLg
+        Para pantallas medianas tendria sizeMd
+        Para pantallas pequeñas tendria sizeSm
+        Para pantallas muy pequelas tendria sizeX1
+
+        Cuando algo no aplica usa el "size"
+
+        Pero que define los tamaños de pantalla? 
+        https://ionicframework.com/docs/api/grid
+        -->
+      <ion-col size="12" sizeLg="3" sizeMd="4" size-Sm="6" *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12]">
+
         <ion-card>
           <ion-img src="assets/alf.jpeg"></ion-img>
         </ion-card>
+
         <ion-card-header>
           <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
           <ion-card-title>Awesome Title</ion-card-title>
         </ion-card-header>
+
         <ion-card-content>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex earum molestiae sunt delectus aliquid consequatur culpa voluptate, magni nihil, distinctio incidunt repellendus non saepe officia adipisci! Maiores nesciunt officiis magni.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex earum molestiae sunt delectus aliquid consequatur
+          culpa voluptate, magni nihil, distinctio incidunt repellendus non saepe officia adipisci! Maiores nesciunt
+          officiis magni.
         </ion-card-content>
       </ion-col>
     </ion-row>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonCard, IonImg, IonCardSubtitle, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonCard, IonImg, IonCardSubtitle, IonCardHeader, IonCardTitle, IonCardContent, IonButtons, IonButton } from '@ionic/angular/standalone';
 import { HeaderComponent } from "../../components/header/header.component";
 
 @Component({
@@ -9,7 +9,7 @@ import { HeaderComponent } from "../../components/header/header.component";
   templateUrl: './grid.page.html',
   styleUrls: ['./grid.page.scss'],
   standalone: true,
-  imports: [IonCardContent, IonCardTitle, IonCardHeader, IonCardSubtitle, IonImg, IonCard, IonCol, IonRow, IonGrid, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent]
+  imports: [IonButton, IonButtons, IonCardContent, IonCardTitle, IonCardHeader, IonCardSubtitle, IonImg, IonCard, IonCol, IonRow, IonGrid, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent]
 })
 export class GridPage implements OnInit {
 
