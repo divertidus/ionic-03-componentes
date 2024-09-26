@@ -52,5 +52,9 @@ export const routes: Routes = [
   {
     path: 'fab',
     loadComponent: () => import('./pages/fab/fab.page').then( m => m.FabPage)
+  },
+  {
+    path: 'custom-colors',
+    loadComponent: () => import('./pages/custom-colors/custom-colors.page').then( m => m.CustomColorsPage)
   }
 ];

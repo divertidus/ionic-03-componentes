@@ -68,9 +68,14 @@ export class InicioPage implements OnInit {
       redirectTo: '/datetime2'
     },
     {
-      icon: 'calendar',
+      icon: 'add-circle-outline',
       name: 'Fab - Floating Action Button',
       redirectTo: '/fab'
+    },
+    {
+      icon: 'color-palette-outline',
+      name: 'Colores personalizados SCSS',
+      redirectTo: '/custom-colors'
     }
   ]
 

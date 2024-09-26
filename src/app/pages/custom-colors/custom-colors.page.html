@@ -1,0 +1,94 @@
+<app-header titulo="Colores Custom SCSS"></app-header>
+
+<!-- Vamos al archivo theme/variables.scss
+
+Queremos poder elegir color="nombrequesea" por ejemplo color="youtube" a cada elemento en el html y que funcione.
+
+util:
+
+https://ionicframework.com/docs/theming/color-generator/
+
+
+Ahi podemos reemplazar, por ejemplo todas las lineas del color primario, a diferencia del tutorial, el archivo esta
+vacio.
+Aun asi se puede añadir lo que sea necesario para añadir o reemplazar. Si queremos modificar el "primary" pondriamos.
+
+
+// Cambiar color primario
+:root {
+
+--ion-color-primary: #3880ff; // Reemplaza con el color que desees
+--ion-color-primary-rgb: 56, 128, 255;
+--ion-color-primary-contrast: #ffffff;
+--ion-color-primary-contrast-rgb: 255, 255, 255;
+--ion-color-primary-shade: #3171e0;
+--ion-color-primary-tint: #4c8dff;
+}
+
+Como lo que queremos son custom colors no cambiaremos el primary.
+Añadimos los colores para Youtube dentro de root
+
+:root {
+// Cambiar color primario
+--ion-color-primary: #3880ff; // Reemplaza con el color que desees
+--ion-color-primary-rgb: 56, 128, 255;
+--ion-color-primary-contrast: #ffffff;
+--ion-color-primary-contrast-rgb: 255, 255, 255;
+--ion-color-primary-shade: #3171e0;
+--ion-color-primary-tint: #4c8dff;
+
+//Youtube
+--ion-color-youtube: #ff0011;
+--ion-color-youtube-rgb: 255,0,17;
+--ion-color-youtube-contrast: #ffffff;
+--ion-color-youtube-contrast-rgb: 255,255,255;
+--ion-color-youtube-shade: #e0000f;
+--ion-color-youtube-tint: #ff1a29;
+}
+
+Con esto no se aplica, pero al final de todo añadimos:
+
+.ion-color-youtube {
+  --ion-color-base: var(--ion-color-youtube) !important;
+  --ion-color-base-rgb: var(--ion-color-youtube-rgb) !important;
+  --ion-color-contrast: var(--ion-color-youtube-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-youtube-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-youtube-shade) !important;
+  --ion-color-tint: var(--ion-color-youtube-tint) !important;
+} -->
+
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+
+  <ion-fab vertical="center" horizontal="center" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button color="ionic"><ion-icon name="logo-ionic"></ion-icon></ion-fab-button>
+      <ion-fab-button color="steam"><ion-icon name="logo-steam"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="end">
+      <ion-fab-button color="youtube"><ion-icon name="logo-youtube"></ion-icon></ion-fab-button>
+      <ion-fab-button color="twitter"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="top">
+      <ion-fab-button color="discord"><ion-icon name="logo-discord"></ion-icon></ion-fab-button>
+      <ion-fab-button color="twitch"><ion-icon name="logo-twitch"></ion-icon></ion-fab-button>
+      <ion-fab-button color="facebook"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="bottom">
+      <ion-fab-button color="firefox"><ion-icon name="logo-firefox"></ion-icon></ion-fab-button>
+      <ion-fab-button color="android"><ion-icon name="logo-android"></ion-icon></ion-fab-button>
+      <ion-fab-button color="dropbox"><ion-icon name="logo-dropbox"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Mirar el html para apuntes</ion-title>
+  </ion-toolbar>
+</ion-footer>
