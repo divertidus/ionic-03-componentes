@@ -1,0 +1,117 @@
+<app-header titulo="Input Forms"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Input Normal</ion-label>
+    </ion-list-header>
+
+
+
+    <!-- IMPORTANTE:  el uso de [(ngmodel)]="nombreVariableDeclaradaEnElTs" nos permite un enlace de los datos bidireccional
+      al colocarlo en un <ion-input> o un <input> entre el modelo typescript, el archivo ts, y el html. 
+      Basicamente se muestra como valor y además está sincronizado de modo que si el valor de nombre cambia, se mostrará
+      en pantalla cambiado, y si cambia mediante el input, ngModelChange será e evento que escuche y actualiza la propiedad
+      nombre en el componente.
+      En resumen nos ahorra escribir ambos comportamientos haciendolo todo automaticamente. 
+     Para poder verlo en tiempo real vmaos a usar el evento con un console.log(nombre) y usando  en el html
+     (ngModelChange)="onNombreChange($event) aunque NO ES NECESARIO PARA QUE FUNCIONE ya que lo hace solo, esto
+     lo hago para verlo en la consola. Podria por ejemplo quitar ese evnto y esa llamada y hacer un onClick en un boton que muestre
+     el contenido de nombre con el console log y comprobaria el campo de igual forma
+     Pero hay una forma MUCHO MAS FACIL  de verlo y es asignar a otro campo de algun sitio ese VALOR, pondré una label debajo 
+     -->
+    <h3>ngModel con Input</h3>
+    <ion-item>
+      <ion-label>Nombre: </ion-label>
+      <ion-input type="text" placeholder="Introduce nombre" [(ngModel)]="nombre"
+        (ngModelChange)="onNombreChange($event)"></ion-input>
+    </ion-item>
+    <ion-item>
+
+      <!-- Aqui comprobamos como se va actualizando solo la variable nombre, si está vacía mostrará "Nombre no contiene nada" -->
+      <ion-label>Nombre leido: {{nombre || 'Nombre no contiene nada'}} </ion-label>
+    </ion-item>
+
+    <h3>Labels</h3>
+    <ion-item>
+      <ion-input label="Default label" placeholder="Enter text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Fixed label" labelPlacement="fixed" placeholder="Enter text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Stacked label" labelPlacement="stacked" placeholder="Enter text"></ion-input>
+    </ion-item>
+
+    <!--Con esto de label="Floating label" labelPlacement="floating" en el label fuerzo que la etiqueta se desplace hacia arriba 
+    dejando sitio al INPUT Antes habia que usar la etiqueta label, ahora se puede meter como atributo del input-->
+    <ion-item>
+      <ion-input label="Floating label" labelPlacement="floating" placeholder="Enter text"></ion-input>
+    </ion-item>
+
+
+    <h3>Clears con icono, texto al volver a escribir y password</h3>
+    <ion-item>
+      <ion-input label="Input with clear button" labelPlacement="stacked" [clearInput]="true"
+        placeholder="Enter text to see clear button" value="Default value">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Input with clear on edit" labelPlacement="stacked" [clearOnEdit]="true"
+        placeholder="Enter text, leave the input, come back and type to clear">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Password input" labelPlacement="stacked" type="password"
+        placeholder="Enter text, leave the input, come back and type to clear">
+      </ion-input>
+    </ion-item>
+
+    <h3>Filled Inputs</h3>
+    <h6>No deben ir en items por conflictos con componentes</h6>
+    <h6>Los pongo con mode md ya que no veo cambios en ios</h6>
+    <ion-input label="Solid input" label-placement="floating" fill="solid" placeholder="Enter text"
+      mode="md"></ion-input>
+    <br />
+
+    <ion-input label="Outline input" label-placement="floating" fill="outline" placeholder="Enter text"
+      mode="md"></ion-input>
+
+    <h3>Helper y texto de error</h3>
+    <ion-input type="email" fill="solid" label="Email" labelPlacement="floating" helperText="Enter a valid email"
+      errorText="Invalid email" ngModel email></ion-input>
+
+    <h3>Inputs Tipos</h3>
+    <ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-input label="Text input" placeholder="Enter text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input label="Number input" type="number" placeholder="000"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input label="Password input" type="password" value="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input label="Email input" type="email" placeholder="email@domain.com"></ion-input>
+        </ion-item>
+
+        <!-- El tel es para que en el dispositivo se muestre teclado numerico, no limita los caracteres -->
+        <ion-item>
+          <ion-input label="Telephone input" type="tel" placeholder="888-888-8888"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+
+
+  </ion-list>
+
+</ion-content>

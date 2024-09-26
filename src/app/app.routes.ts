@@ -64,5 +64,9 @@ export const routes: Routes = [
   {
     path: 'infinite-scroll',
     loadComponent: () => import('./pages/infinite-scroll/infinite-scroll.page').then( m => m.InfiniteScrollPage)
+  },
+  {
+    path: 'input',
+    loadComponent: () => import('./pages/input/input.page').then( m => m.InputPage)
   }
 ];
