@@ -1,23 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonLabel, IonList, IonItem, IonReorder, IonReorderGroup, IonButton } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonLabel, IonList, IonItem, IonReorder, IonReorderGroup, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { HeaderComponent } from "../../components/header/header.component";
 import { ItemReorderEventDetail } from '@ionic/angular';
-import { person } from 'ionicons/icons';
+import { person, beerOutline, add } from 'ionicons/icons';
+import { addIcons } from 'ionicons';
 
 @Component({
   selector: 'app-list-reorder',
   templateUrl: './list-reorder.page.html',
   styleUrls: ['./list-reorder.page.scss'],
   standalone: true,
-  imports: [IonButton, IonReorderGroup, IonReorder, IonItem, IonList, IonLabel, IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent]
+  imports: [IonIcon, IonButton, IonReorderGroup, IonReorder, IonItem, IonList, IonLabel, IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent]
 })
 export class ListReorderPage implements OnInit {
 
   personajes: string[] = ['Pikachu', 'Mario', 'Sonic', 'Spiderman', 'Solid Snake'];
 
-  constructor() { }
+  constructor() {
+      addIcons({beerOutline});
+      }
 
 
   handleReorder(ev: CustomEvent<ItemReorderEventDetail>) {
