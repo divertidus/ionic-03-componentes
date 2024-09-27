@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonLabel, IonItem } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonLabel, IonItem, IonItemSliding, IonItemOptions, IonItemOption, IonIcon } from '@ionic/angular/standalone';
 import { HeaderComponent } from "../../components/header/header.component";
 import { DataService } from 'src/app/services/data.service';
 import { Observable } from 'rxjs';
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   templateUrl: './list.page.html',
   styleUrls: ['./list.page.scss'],
   standalone: true,
-  imports: [IonItem, IonLabel, IonList, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent]
+  imports: [IonIcon, IonItemOption, IonItemOptions, IonItemSliding, IonItem, IonLabel, IonList, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent]
 })
 export class ListPage implements OnInit {
 
@@ -35,6 +35,35 @@ export class ListPage implements OnInit {
 
   /* Creo una variable Observable que acepte cualquier tipo para guardar el resultado de la peticon html */
   usuarios!: Observable<any>;
+
+  /*
+  1. ¿Qué es @ViewChild?
+@ViewChild es un decorador de Angular que permite acceder a un elemento del DOM 
+o a una instancia de un componente hijo dentro de tu clase de componente. 
+Te proporciona una referencia directa a ese elemento o componente para poder 
+interactuar con él desde el TypeScript de tu componente.
+
+En este caso, @ViewChild(IonList) busca en el template HTML un componente IonList 
+(que es parte de Ionic) y guarda una referencia a él en la propiedad ionList de tu clase.
+2. Sintaxis:
+
+  @ViewChild(IonList) ionList!: IonList;
+    @ViewChild(IonList) busca el componente IonList dentro del template.
+    ionList!: IonList define una propiedad en la clase llamada ionList de tipo IonList. 
+    El operador ! indica que estamos seguros de que esa referencia no será null o undefined 
+    después de que la vista sea inicializada.
+3. ¿Por qué usamos @ViewChild en este contexto?
+En este caso, tienes un componente <ion-list> en tu template HTML, 
+y dentro de ese <ion-list> hay elementos deslizables (sliding items), como tarjetas de usuario,
+ que tienen botones para realizar acciones (compartir, marcar como favorito o borrar). 
+ Cada vez que se hace clic en uno de estos botones, quieres cerrar los elementos deslizables, 
+ y para ello necesitas interactuar directamente con el IonList.
+
+Al utilizar @ViewChild, puedes acceder a las funcionalidades del componente IonList, 
+como el método closeSlidingItems(), que cierra cualquier elemento deslizante que esté 
+abierto en el IonList.
+  */
+  @ViewChild(IonList) ionList!: IonList;
 
   ngOnInit() {
 
@@ -61,6 +90,23 @@ export class ListPage implements OnInit {
     */
   }
 
+  compartir(user: any) {
+    console.log('compartir', user)
+    //Gracias al viewchild podemos referenciar el propio ionList y llamar a su metod closeSlidingItems tras elegir la opcion
+    this.ionList.closeSlidingItems();
+  }
+
+  favorito(user: any) {
+    console.log('favorito', user)
+    //Gracias al viewchild podemos referenciar el propio ionList y llamar a su metod closeSlidingItems tras elegir la opcion
+    this.ionList.closeSlidingItems();
+  }
+
+  borrar(user: any) {
+    console.log('borrar', user)
+    //Gracias al viewchild podemos referenciar el propio ionList y llamar a su metod closeSlidingItems tras elegir la opcion
+    this.ionList.closeSlidingItems();
+  }
 }
 
 /* 
