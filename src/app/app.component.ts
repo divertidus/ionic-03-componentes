@@ -1,19 +1,41 @@
-import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet, IonToolbar, IonTitle, IonHeader, IonContent, IonButtons, IonMenu,IonMenuButton, IonSplitPane, IonList, IonItem, IonIcon, IonLabel, IonBackButton } from '@ionic/angular/standalone';
+import { Component, OnInit } from '@angular/core';
+import { IonApp, IonRouterOutlet, IonToolbar, IonTitle, IonHeader,IonMenuToggle, IonContent, IonButtons, IonMenu, IonMenuButton, IonSplitPane, IonList, IonItem, IonIcon, IonLabel, IonBackButton, IonButton } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import * as ionIcons from 'ionicons/icons';
 import { HeaderComponent } from "./components/header/header.component";
+import { RouterLink } from '@angular/router';
+import { Componente } from './interfaces/interfaces';
+import { Observable } from 'rxjs';
+import { DataService } from './services/data.service';
+import { MenuController } from '@ionic/angular';
+import { AsyncPipe, NgForOf } from '@angular/common';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [IonBackButton, IonLabel, IonIcon, IonItem, IonList, IonSplitPane, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, IonApp, IonRouterOutlet, IonMenu, IonMenuButton, HeaderComponent],
+  imports: [IonButton, IonBackButton, NgForOf,IonMenuToggle, RouterLink, AsyncPipe, IonLabel, IonIcon, IonItem, IonList, IonSplitPane, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, IonApp, IonRouterOutlet, IonMenu, IonMenuButton, HeaderComponent],
 })
-export class AppComponent {
-  constructor() {
+export class AppComponent implements OnInit {
+
+  componentes!: Observable<Componente[]>;
+
+
+  constructor(
+    private dataService: DataService,
+    private menuCtrl: MenuController
+  ) {
     addIcons(ionIcons);
+  }
+
+  async cerrarMenu() {
+    await this.menuCtrl.toggle('menu');
+    console.log('Cerrando menú...');
+  }
+
+  ngOnInit() {
+    this.componentes = this.dataService.getMenuOpts(); //
   }
 }
 // Este componente es el contenedor principal de tu aplicación
@@ -22,3 +44,20 @@ export class AppComponent {
 
 // Paso previo: Este componente se carga desde main.ts
 // Siguiente paso: Las rutas definidas en app.routes.ts determinarán qué página se carga en IonRouterOutlet
+/*
+
+componentes!: Observable<Componente[]>;
+  constructor(
+    private menuCtrl: MenuController,
+    private dataService: DataService //Inyectamos nuestro servicio de dataService para poder acceder al metodo getMenuOpts
+  ) { }
+
+  mostrarMenu() {
+    console.log("pulsado boton menu")
+    this.menuCtrl.open("menu");
+  }
+
+  ngOnInit() {
+    this.componentes = this.dataService.getMenuOpts(); //
+  }
+ */
