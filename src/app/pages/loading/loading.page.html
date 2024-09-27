@@ -1,0 +1,19 @@
+<app-header titulo="Loading"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <h3>Inline, se gestiona en el HTML</h3>
+  <ion-button id="open-loading">Loading en HTML</ion-button>
+  <ion-loading trigger="open-loading" message="Dismissing after 3 seconds..." duration="3000"></ion-loading>
+
+  <h3>Inline en HTML con Spinner</h3>
+  <ion-button id="open-loading2">Loading en HTML circles</ion-button>
+  <ion-loading trigger="open-loading2" message="Cargando..." [duration]="3000" spinner="circles"></ion-loading>
+
+
+  <h3>Con un método controlador</h3>
+  <ion-button (click)="mostrarLoading()" expand="block" fill="outline" shape="round">
+    Mostrar Loading
+  </ion-button>
+
+</ion-content>

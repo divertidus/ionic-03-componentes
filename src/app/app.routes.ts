@@ -80,5 +80,9 @@ export const routes: Routes = [
   {
     path: 'list-reorder',
     loadComponent: () => import('./pages/list-reorder/list-reorder.page').then( m => m.ListReorderPage)
+  },
+  {
+    path: 'loading',
+    loadComponent: () => import('./pages/loading/loading.page').then( m => m.LoadingPage)
   }
 ];
