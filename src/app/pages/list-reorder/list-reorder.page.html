@@ -1,0 +1,23 @@
+<<ion-header [translucent]="true">
+  <ion-toolbar>
+
+
+    <ion-back-button color="primary" slot="start" defaultHref="/"></ion-back-button>
+
+    <ion-title color="primary">List-Reorder</ion-title>
+
+  </ion-toolbar>
+  </ion-header>>
+
+  <ion-content [fullscreen]="true" class="ion-padding">
+    <ion-list>
+      <ion-reorder-group [disabled]="isDisabled" (ionItemReorder)="handleReorder($any($event))">
+        <ion-item *ngFor="let personaje of personajes">
+          <ion-label>{{ personaje }}</ion-label>
+          <ion-reorder slot="end"></ion-reorder>
+        </ion-item>
+      </ion-reorder-group>
+    </ion-list>
+    <!-- The reorder gesture is disabled by default, enable it to drag and drop items -->
+    <ion-button expand="block" (click)="toggleReorder()"> Toggle Reorder </ion-button>
+  </ion-content>
