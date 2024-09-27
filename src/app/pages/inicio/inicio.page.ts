@@ -92,10 +92,11 @@ export class InicioPage implements OnInit {
       redirectTo: '/input'
     },
     {
-      icon: 'reader-outline',
-      name: 'Input Forms 2',
-      redirectTo: '/input2'
+      icon: 'list-outline',
+      name: 'List - Sliding',
+      redirectTo: '/list'
     }
+    
 
   ]
 

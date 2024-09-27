@@ -72,5 +72,9 @@ export const routes: Routes = [
   {
     path: 'input2',
     loadComponent: () => import('./pages/input2/input2.page').then( m => m.Input2Page)
+  },
+  {
+    path: 'list',
+    loadComponent: () => import('./pages/list/list.page').then( m => m.ListPage)
   }
 ];
