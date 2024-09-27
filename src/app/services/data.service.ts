@@ -3,6 +3,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Componente } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,16 @@ export class DataService {
       Dice "cuando lleguen los datos, pásalos a console.log".
     */
 
+  }
+  /*Importo el Componente que puse en import y que saque de inicio.page.ts con el tutorial del menu, hacia la segunda mitad
+  del video 64 src/app/interfaces/interfaces';
+  Abajo está obteniendo el json que contiene lo que antes tenia en inicio.page.ts con la informacion para la paginad e inicio
+  y cada ventana de la aplicacion.
+  Por ultimo usaremos nuestro servicio recien creado getMenuOpts para cargar en el inicio.page
+
+  */
+  getMenuOpts() {
+    return this.http.get<Componente[]>('/assets/data/menu-opts.json');
   }
 }
 

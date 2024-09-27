@@ -1,17 +1,15 @@
-// app.component.ts
-// Este es el componente raíz de tu aplicación Ionic/Angular
-
 import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+import { IonApp, IonRouterOutlet, IonToolbar, IonTitle, IonHeader, IonContent, IonButtons, IonMenu,IonMenuButton, IonSplitPane, IonList, IonItem, IonIcon, IonLabel, IonBackButton } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import * as ionIcons from 'ionicons/icons';
+import { HeaderComponent } from "./components/header/header.component";
 
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [IonApp, IonRouterOutlet],
+  imports: [IonBackButton, IonLabel, IonIcon, IonItem, IonList, IonSplitPane, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, IonApp, IonRouterOutlet, IonMenu, IonMenuButton, HeaderComponent],
 })
 export class AppComponent {
   constructor() {
