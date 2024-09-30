@@ -108,5 +108,10 @@
     "icon": "refresh-outline",
     "name": "Refresher",
     "redirectTo": "/refresher"
+  },
+  {
+    "icon": "search-outline",
+    "name": "Searchbar",
+    "redirectTo": "/searchbar"
   }
 ]

@@ -105,6 +105,10 @@ export const routes: Routes = [
     path: 'refresher',
     loadComponent: () => import('./pages/refresher/refresher.page').then( m => m.RefresherPage)
   },
+  {
+    path: 'searchbar',
+    loadComponent: () => import('./pages/searchbar/searchbar.page').then( m => m.SearchbarPage)
+  },
   /* Esto lo comentamos porque no va a ser una ruta a la que vamos a navegar.
   { 
     path: 'modal-info',

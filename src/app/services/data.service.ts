@@ -50,6 +50,33 @@ export class DataService {
   getMenuOpts() {
     return this.http.get<Componente[]>('/assets/data/menu-opts.json');
   }
+
+
+  getAlbums() {
+    // Utilizamos el método get de HttpClient para hacer la petición
+    // El resultado es un Observable que se puede suscribir en los componentes
+    return this.http.get<any[]>("https://jsonplaceholder.typicode.com/albums");
+
+    /* 
+    Este método retorna un Observable.
+      No realiza la petición HTTP inmediatamente, solo la define.
+
+      Por qué usamos subscribe
+
+      subscribe es como decir "estoy listo para recibir los datos cuando lleguen".
+      Inicia la ejecución del Observable (en este caso, realiza la petición HTTP).
+      Permite manejar los datos cuando llegan.
+
+      Cómo funciona
+
+      this.dataService.getUsuarios() retorna un Observable.
+      .subscribe(console.log) hace dos cosas:
+
+      Inicia la petición HTTP.
+      Dice "cuando lleguen los datos, pásalos a console.log".
+    */
+
+  }
 }
 
 // Paso previo: HttpClient se configura globalmente en main.ts
