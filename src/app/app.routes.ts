@@ -93,6 +93,14 @@ export const routes: Routes = [
     path: 'popover',
     loadComponent: () => import('./pages/popover/popover.page').then( m => m.PopoverPage)
   },
+  {
+    path: 'progress',
+    loadComponent: () => import('./pages/progress/progress.page').then( m => m.ProgressPage)
+  },
+  {
+    path: 'range',
+    loadComponent: () => import('./pages/range/range.page').then( m => m.RangePage)
+  },
   /* Esto lo comentamos porque no va a ser una ruta a la que vamos a navegar.
   { 
     path: 'modal-info',

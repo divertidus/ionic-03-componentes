@@ -1,0 +1,68 @@
+<app-header titulo="Range"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-range label="Range con Iconos" aria-label="Temperature">
+        <ion-icon slot="start" name="snow-outline"></ion-icon>
+        <ion-icon slot="end" name="sunny-outline"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-range labelPlacement="start" label="Label at the Start"></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-range labelPlacement="end" label="Label end"></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-range labelPlacement="fixed" label="Fixed Width Label"></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-range labelPlacement="stacked" label="Stacked Label"></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-range>
+        <div slot="label">Label with
+          <ion-text color="primary">custom HTML</ion-text>
+        </div>
+      </ion-range>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-range aria-label="Volume"></ion-range>
+    </ion-item>
+
+    <h5>Dual knobs</h5>
+    <ion-item>
+      <ion-range aria-label="Dual Knobs Range" [dualKnobs]="true" [value]="{ lower: 20, upper: 80 }"></ion-range>
+    </ion-item>
+
+    <h5>Con pin</h5>
+    <ion-item>
+      <ion-range aria-label="Range with pin" [pin]="true" [pinFormatter]="pinFormatter"></ion-range>
+    </ion-item>
+
+    <h5>Snapping y Ticks</h5>
+    <ion-item>
+      <ion-range aria-label="Range with ticks" [ticks]="true" [snaps]="true" [min]="0" [max]="10"></ion-range>
+    </ion-item>
+
+    <h5>Uso de "ionChange"</h5>
+    <ion-item>
+      <ion-range aria-label="Range with ionChange" (ionChange)="onIonChange($event)"></ion-range>
+    </ion-item>
+
+    <h5>Uso de ionKnobMoveStart and ionKnobMoveEnd</h5>
+    <ion-item>
+      <ion-range aria-label="Range with knob events" (ionKnobMoveStart)="onIonKnobMoveStart($event)"
+        (ionKnobMoveEnd)="onIonKnobMoveEnd($event)"></ion-range>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

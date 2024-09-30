@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary">Progress</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-progress-bar type="indeterminate"></ion-progress-bar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <!-- Mis pruebas-->
+
+  <!-- Default Progressbar -->
+  <h4>Default Progressbar vacio</h4>
+  <ion-progress-bar></ion-progress-bar>
+
+
+  <!-- Default Progressbar with %-->
+  <h4>Progressbar with 0.5% desde html</h4>
+  <ion-progress-bar value="0.5"></ion-progress-bar>
+  <h4>Progressbar with 0.05% como variable</h4>
+  <ion-progress-bar [value]="progreso"></ion-progress-bar>
+  <h4>Progressbar with buffer</h4>
+  <ion-progress-bar [value]="progreso" buffer="buffer"></ion-progress-bar>
+  <h4>Progress 0.4 y con 0.5 de buffer</h4>
+  <ion-progress-bar type="determinate" value="0.40" buffer="0.5" color="primary"></ion-progress-bar>
+
+  <!-- Colorize Progressbar -->
+  <h4>Colorize Progressbar</h4>
+  <ion-progress-bar type="indeterminate" color="secondary"></ion-progress-bar><br>
+  <ion-progress-bar type="indeterminate" color="tertiary"></ion-progress-bar><br>
+  <ion-progress-bar type="indeterminate" color="success"></ion-progress-bar><br>
+  <ion-progress-bar type="indeterminate" color="warning"></ion-progress-bar><br>
+  <ion-progress-bar type="indeterminate" color="danger"></ion-progress-bar><br>
+  <ion-progress-bar type="indeterminate" color="dark"></ion-progress-bar><br>
+
+  <h4>Mover con Range</h4>
+  <ion-progress-bar [value]="valorRange1"></ion-progress-bar>
+  <br>
+  <ion-range aria-label="Mueve progress bar" (ionChange)="rangeChange($event)">
+    <ion-icon slot="start" name="snow-outline"></ion-icon>
+    <ion-icon slot="end" name="sunny-outline"></ion-icon>
+  </ion-range>
+
+  <h4>Mover con Range Sin soltar</h4>
+  <ion-progress-bar [value]="valorRange2"></ion-progress-bar>
+  <br>
+  <ion-range (ionInput)="rangeChangeInstant($event)" min="0" max="100" step="1">
+    <ion-icon slot="start" name="snow-outline"></ion-icon>
+    <ion-icon slot="end" name="sunny-outline"></ion-icon>
+  </ion-range>
+
+
+</ion-content>

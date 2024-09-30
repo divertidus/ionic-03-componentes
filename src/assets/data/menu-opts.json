@@ -1,96 +1,107 @@
 [
-    {
-      "icon": "american-football-outline",
-      "name": "Action Sheet",
-      "redirectTo": "/action-sheet"
-    },
-    {
-      "icon": "megaphone-outline",
-      "name": "Alert",
-      "redirectTo": "/alert"
-    },
-    {
-      "icon": "pizza-outline",
-      "name": "Patata",
-      "redirectTo": "/patata"
-    },
-    {
-      "icon": "person-outline",
-      "name": "Avatar",
-      "redirectTo": "/avatar"
-    },
-    {
-      "icon": "keypad-outline",
-      "name": "Buttons",
-      "redirectTo": "/buttons"
-    },
-    {
-      "icon": "card-outline",
-      "name": "Cards",
-      "redirectTo": "/card"
-    },
-    {
-      "icon": "checkbox-outline",
-      "name": "Checkbox",
-      "redirectTo": "/checkbox"
-    },
-    {
-      "icon": "calendar-outline",
-      "name": "Datetime accordion",
-      "redirectTo": "/datetime"
-    },
-    {
-      "icon": "calendar",
-      "name": "Datetime sin acordion",
-      "redirectTo": "/datetime2"
-    },
-    {
-      "icon": "add-circle-outline",
-      "name": "Fab - Floating Action Button",
-      "redirectTo": "/fab"
-    },
-    {
-      "icon": "color-palette-outline",
-      "name": "Colores personalizados SCSS",
-      "redirectTo": "/custom-colors"
-    },
-    {
-      "icon": "grid-outline",
-      "name": "Grid Row Col",
-      "redirectTo": "/grid"
-    },
-    {
-      "icon": "infinite-outline",
-      "name": "Infinite Scroll",
-      "redirectTo": "/infinite-scroll"
-    }, {
-      "icon": "pencil-outline",
-      "name": "Input Forms",
-      "redirectTo": "/input"
-    },
-    {
-      "icon": "list-outline",
-      "name": "List - Sliding",
-      "redirectTo": "/list"
-    },
-    {
-      "icon": "reorder-four-outline",
-      "name": "List - Reorder",
-      "redirectTo": "/list-reorder"
-    },
-    {
-      "icon": "refresh-circle-outline",
-      "name": "Loading",
-      "redirectTo": "/loading"
-    },
-    {
-      "icon": "phone-portrait-outline",
-      "name": "Modal",
-      "redirectTo": "/modal"
-    },
-    {
-      "icon": "tablet-portrait-outline",
-      "name": "Popover",
-      "redirectTo": "/popover"
-    }
-  ]
+  {
+    "icon": "american-football-outline",
+    "name": "Action Sheet",
+    "redirectTo": "/action-sheet"
+  },
+  {
+    "icon": "megaphone-outline",
+    "name": "Alert",
+    "redirectTo": "/alert"
+  },
+  {
+    "icon": "pizza-outline",
+    "name": "Patata",
+    "redirectTo": "/patata"
+  },
+  {
+    "icon": "person-outline",
+    "name": "Avatar",
+    "redirectTo": "/avatar"
+  },
+  {
+    "icon": "keypad-outline",
+    "name": "Buttons",
+    "redirectTo": "/buttons"
+  },
+  {
+    "icon": "card-outline",
+    "name": "Cards",
+    "redirectTo": "/card"
+  },
+  {
+    "icon": "checkbox-outline",
+    "name": "Checkbox",
+    "redirectTo": "/checkbox"
+  },
+  {
+    "icon": "calendar-outline",
+    "name": "Datetime accordion",
+    "redirectTo": "/datetime"
+  },
+  {
+    "icon": "calendar",
+    "name": "Datetime sin acordion",
+    "redirectTo": "/datetime2"
+  },
+  {
+    "icon": "add-circle-outline",
+    "name": "Fab - Floating Action Button",
+    "redirectTo": "/fab"
+  },
+  {
+    "icon": "color-palette-outline",
+    "name": "Colores personalizados SCSS",
+    "redirectTo": "/custom-colors"
+  },
+  {
+    "icon": "grid-outline",
+    "name": "Grid Row Col",
+    "redirectTo": "/grid"
+  },
+  {
+    "icon": "infinite-outline",
+    "name": "Infinite Scroll",
+    "redirectTo": "/infinite-scroll"
+  },
+  {
+    "icon": "pencil-outline",
+    "name": "Input Forms",
+    "redirectTo": "/input"
+  },
+  {
+    "icon": "list-outline",
+    "name": "List - Sliding",
+    "redirectTo": "/list"
+  },
+  {
+    "icon": "reorder-four-outline",
+    "name": "List - Reorder",
+    "redirectTo": "/list-reorder"
+  },
+  {
+    "icon": "refresh-circle-outline",
+    "name": "Loading",
+    "redirectTo": "/loading"
+  },
+  {
+    "icon": "phone-portrait-outline",
+    "name": "Modal",
+    "redirectTo": "/modal"
+  },
+  {
+    "icon": "tablet-portrait-outline",
+    "name": "Popover",
+    "redirectTo": "/popover"
+  },
+  {
+    "icon": "barcode-outline",
+    "name": "Progress",
+    "redirectTo": "/progress"
+  },
+  {
+    "icon": "code-working-outline",
+    "name": "Range",
+    "redirectTo": "/range"
+  }
+]
