@@ -84,5 +84,15 @@ export const routes: Routes = [
   {
     path: 'loading',
     loadComponent: () => import('./pages/loading/loading.page').then( m => m.LoadingPage)
+  },
+  {
+    path: 'modal',
+    loadComponent: () => import('./pages/modal/modal.page').then( m => m.ModalPage)
+  },
+  /* Esto lo comentamos porque no va a ser una ruta a la que vamos a navegar.
+  { 
+    path: 'modal-info',
+    loadComponent: () => import('./pages/modal-info/modal-info.page').then( m => m.ModalInfoPage)
   }
+    */
 ];
