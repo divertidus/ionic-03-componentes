@@ -23,10 +23,13 @@ export class FiltroPipe implements PipeTransform {
     }
 
     // Si el texto es 'todos', devuelve el array completo
-    if (texto === 'todos') {
+    /* Comento esta solucion para que venga del con valor vacio al hacer click en "todos"
+    ya que, y si hubiese algun publisher llamado "todos"?
+    */
+    /* if (texto === 'todos') {
       console.log("desde filtro este es el texto: " + texto)
       return array;
-    }
+    } */
 
     // Si el array es nulo o indefinido, lo devuelve tal cual
     if (!array) {

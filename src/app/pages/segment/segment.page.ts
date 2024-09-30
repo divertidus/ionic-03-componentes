@@ -25,7 +25,7 @@ export class SegmentPage implements OnInit {
 
   // Variable para almacenar el texto de filtrado
   // Se actualiza cuando el usuario cambia el segmento
-  textoBuscar: string = '';
+  textoPublisher: string = '';
 
   // Observable que contendrá los datos de los superhéroes
   // Se usa Observable para manejar datos asincrónicos de manera eficiente
@@ -45,7 +45,7 @@ export class SegmentPage implements OnInit {
   segmentChanged(event: any) {
     // Actualiza textoBuscar con el valor del segmento seleccionado
     // Esto desencadena el filtrado en el template
-    this.textoBuscar = event.detail.value;
+    this.textoPublisher = event.detail.value;
     console.log(event.detail.value)
   }
 

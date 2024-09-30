@@ -11,11 +11,11 @@
 
 
   <!-- Ion-segment para filtrar superhéroes -->
-  <!-- El valor inicial es "todos" -->
+  <!-- El valor inicial de todos será '' -->
   <!-- (ionChange) es un evento que se dispara cuando cambia la selección -->
   <!-- $event contiene información sobre el cambio, incluyendo el nuevo valor seleccionado -->
-  <ion-segment value="todos" (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="todos">
+  <ion-segment value="" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="">
       <ion-label>Todos</ion-label>
     </ion-segment-button>
     <ion-segment-button value="DC Comics">
@@ -37,7 +37,7 @@
     <!-- El pipe 'filtro' se aplica después de la conversión async -->
     <!-- 'textoBuscar' es la variable que contiene el texto de filtrado -->
     <!-- 'publisher' es la propiedad por la que se filtra -->
-    <ion-item *ngFor="let heroe of (superheroes|async)|filtro:textoBuscar:'publisher'">
+    <ion-item *ngFor="let heroe of (superheroes|async)|filtro:textoPublisher:'publisher'">
       <ion-label>
         <h3>{{heroe.superhero}} <small>{{heroe.alter_ego}}</small></h3>
         <p>{{heroe.first_appearance}}</p>
