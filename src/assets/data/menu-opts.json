@@ -103,5 +103,10 @@
     "icon": "code-working-outline",
     "name": "Range",
     "redirectTo": "/range"
+  },
+  {
+    "icon": "refresh-outline",
+    "name": "Refresher",
+    "redirectTo": "/refresher"
   }
 ]
