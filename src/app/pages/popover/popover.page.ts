@@ -28,8 +28,13 @@ export class PopoverPage implements OnInit {
       event: event,
       translucent: true,
     });
-    return await popover.present();
+    await popover.present();
+
+    const { data } = await popover.onWillDismiss();
+    console.log(data)
+    console.log(data.item)
   }
+
 
 
   ngOnInit() {

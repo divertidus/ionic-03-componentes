@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonList, IonLabel, IonItem } from "@ionic/angular/standalone";
 import { CommonModule } from '@angular/common';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-popover-info',
@@ -12,16 +13,18 @@ import { CommonModule } from '@angular/common';
 
 export class PopoverInfoComponent implements OnInit {
 
-  items = Array(40)
+  items = Array(7)
 
-  onClick(ev: Event) {
-    const objetoClicado = ev.currentTarget as HTMLElement;
-    const label = objetoClicado.querySelector('ion-label')?.textContent;
-    console.log(label)
-    
+  onClick(numeroItem: number) {
+
+    console.log("Click en item numero: " + numeroItem)
+    this.popoverCtrl.dismiss({
+      item: numeroItem
+    });
+
   }
 
-  constructor() { }
+  constructor(private popoverCtrl: PopoverController) { }
 
   ngOnInit() { }
 
