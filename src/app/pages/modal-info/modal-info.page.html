@@ -1,11 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Modal Page</ion-title>
+    <ion-title>Modal Page - {{nombre}} - {{pais}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-button (click)="cerrarModalSinMas()" expand="block" shape="round">
-    Click me
+  <!-- Vincular el input de edad con la variable 'edad' del componente -->
+  <ion-input [(ngModel)]="edad" label="Edad" type="number" placeholder="Introduce edad" required="true"></ion-input>
+  <ion-button id="cerrarSinMas" (click)="cerrarModalSinMas()" expand="block" shape="round">
+    Cerar sin más.
+  </ion-button>
+  <!-- Llamar a la función 'cerrarConArgumentos' pasando el valor de 'edad' -->
+  <ion-button id="cerrarYConfirmar" (click)="cerrarConArgumentos(edad)" expand="block" shape="round" [disabled]="!edad">
+    Cerrar enviando valor.
   </ion-button>
 </ion-content>

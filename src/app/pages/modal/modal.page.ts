@@ -30,13 +30,36 @@ export class ModalPage implements OnInit {
       // 'this.modalCtrl.create()' crea el modal, que es una ventana emergente.
       // 'await' espera a que el modal esté completamente creado antes de continuar.
 
+      // Crear el modal con el componente hijo 'ModalInfoPage' y pasar los datos 'nombre' y 'pais'
       component: ModalInfoPage,
       // 'component' define qué página o componente se mostrará en el modal.
       // En este caso, 'ModalPage' es el componente que se visualizará.
 
+      // Pasar información al modal hijo usando 'componentProps'
+      componentProps: {
+        nombre: 'Fernando',
+        pais: 'España'
+      },
+      /*Con este componentProps, envío información al componente modal hijo, en este caso modal-info-page.ts que lo recibirá gracias a:
+          @Input() nombre!: string;
+          @Input() pais!: string;
+      */
+
+
       cssClass: 'my-custom-class'
       // 'cssClass' permite añadir clases CSS personalizadas al modal para darle un estilo específico.
       // Aquí, se aplica la clase 'my-custom-class' al modal.
+    });
+
+    // Escuchar el evento 'onDidDismiss' para obtener los datos cuando el modal hijo se cierre
+    modal.onDidDismiss().then((recibido) => {
+      // Guardar los datos recibidos del modal en 'returnedData' para una mejor legibilidad
+      const infoRecibida = recibido.data;
+       // Verificar si se ha recibido algún dato del modal
+      if (infoRecibida) {
+        // Imprimir el valor de 'edad' enviado desde el modal hijo
+        console.log('Edad recibida del modal:', infoRecibida.edad);
+      }
     });
 
     console.log("Se pulsa mostrar");
