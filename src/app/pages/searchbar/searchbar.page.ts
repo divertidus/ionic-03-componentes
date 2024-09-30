@@ -5,18 +5,22 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton,
 import { Observable } from 'rxjs';
 import { DataService } from '../../services/data.service';
 import { IonSearchbarCustomEvent } from '@ionic/core';
+import { FiltroPipe } from 'src/app/pipes/filtro.pipe';
 
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.page.html',
   styleUrls: ['./searchbar.page.scss'],
   standalone: true,
-  imports: [IonItem, IonLabel, IonList, IonSearchbar, IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonItem, FiltroPipe, IonLabel, IonList, IonSearchbar, IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class SearchbarPage implements OnInit {
 
   onSearchEvent(event: any) {
+    this.textoBuscar = event.detail.value;
     console.log(event)
+    
+
   }
 
   @ViewChild(IonList) ionList!: IonList
@@ -24,16 +28,21 @@ export class SearchbarPage implements OnInit {
   constructor(private dataService: DataService) { }
 
   albunes: any[] = [];
+  textoBuscar: string = '';
 
   ngOnInit() {
 
     this.dataService.getAlbums().subscribe(albunes => {
-      console.log(albunes)
+      /* console.log(albunes) */
       this.albunes = albunes;
+
     })
-
-
   }
+
+  public results = [...this.albunes];
+
+
+
 
 
 

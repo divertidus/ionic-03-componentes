@@ -6,15 +6,20 @@
     </ion-buttons>
   </ion-toolbar>
 
-  <ion-searchbar placeholder="Buscar album" animated inputmode="text" (ionChange)="onSearchEvent($event)"
+  <!-- Con ionChange necesito darle a ENTER o perder el foco, con ionInput y estableciendo el debounce ya lo hace OK  -->
+  <ion-searchbar placeholder="Buscar album" animated inputmode="text" (ionInput)="onSearchEvent($event)"
     [debounce]="500"></ion-searchbar>
-
 </ion-header>
 
+
 <ion-content [fullscreen]="false">
+
   <ion-list>
-    <ion-item *ngFor="let album of albunes">
+
+    <ion-item *ngFor="let album of albunes | filtro:textoBuscar:'title'">
       <ion-label>{{album.title}}</ion-label>
     </ion-item>
-  </ion-list>>
+
+  </ion-list>
+
 </ion-content>
