@@ -109,6 +109,10 @@ export const routes: Routes = [
     path: 'searchbar',
     loadComponent: () => import('./pages/searchbar/searchbar.page').then( m => m.SearchbarPage)
   },
+  {
+    path: 'segment',
+    loadComponent: () => import('./pages/segment/segment.page').then( m => m.SegmentPage)
+  },
   /* Esto lo comentamos porque no va a ser una ruta a la que vamos a navegar.
   { 
     path: 'modal-info',

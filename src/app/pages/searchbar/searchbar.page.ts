@@ -16,19 +16,12 @@ import { FiltroPipe } from 'src/app/pipes/filtro.pipe';
 })
 export class SearchbarPage implements OnInit {
 
-  onSearchEvent(event: any) {
-    this.textoBuscar = event.detail.value;
-    console.log(event)
-    
-
-  }
-
   @ViewChild(IonList) ionList!: IonList
-
-  constructor(private dataService: DataService) { }
 
   albunes: any[] = [];
   textoBuscar: string = '';
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
 
@@ -39,10 +32,11 @@ export class SearchbarPage implements OnInit {
     })
   }
 
-  public results = [...this.albunes];
+  onSearchEvent(event: CustomEvent) {
+    this.textoBuscar = event.detail.value;
+    console.log(event.detail.value)
 
-
-
+  }
 
 
 

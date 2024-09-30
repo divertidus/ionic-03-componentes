@@ -1,0 +1,66 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-title color="primary">Segment</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="primary"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+
+  <!-- Ion-segment para filtrar superhéroes -->
+  <!-- El valor inicial es "todos" -->
+  <!-- (ionChange) es un evento que se dispara cuando cambia la selección -->
+  <!-- $event contiene información sobre el cambio, incluyendo el nuevo valor seleccionado -->
+  <ion-segment value="todos" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="todos">
+      <ion-label>Todos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="DC Comics">
+      <ion-label>DC</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Marvel Comics">
+      <ion-label>Marvel</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+
+
+<ion-content [fullscreen]="false">
+  <ion-list>
+    <!-- Directiva *ngFor para iterar sobre la lista de superhéroes -->
+    <!-- (superheroes|async) convierte el Observable en un array -->
+    <!-- El pipe 'filtro' se aplica después de la conversión async -->
+    <!-- 'textoBuscar' es la variable que contiene el texto de filtrado -->
+    <!-- 'publisher' es la propiedad por la que se filtra -->
+    <ion-item *ngFor="let heroe of (superheroes|async)|filtro:textoBuscar:'publisher'">
+      <ion-label>
+        <h3>{{heroe.superhero}} <small>{{heroe.alter_ego}}</small></h3>
+        <p>{{heroe.first_appearance}}</p>
+      </ion-label>
+      <ion-label slot="end" class="ion-text-right">{{heroe.publisher}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+
+<!-- 
+1. El usuario ve la página con un título "Segment" y un botón de retroceso.
+
+2. Debajo del título, hay un ion-segment con tres opciones: "Todos", "DC" y "Marvel".
+
+3. El contenido principal muestra una lista de superhéroes.
+
+4. Cada vez que el usuario selecciona un segmento diferente, 
+se dispara el evento ionChange, que llama al método segmentChanged($event) en el componente.
+
+5. La lista de superhéroes se filtra usando el pipe filtro 
+con dos parámetros: textoBuscar (que se actualiza en segmentChanged) 
+y 'publisher' (la propiedad por la que se filtra).
+
+6. Cada superhéroe se muestra en un ion-item con su nombre, 
+alter ego, primera aparición y editorial. -->

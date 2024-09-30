@@ -51,6 +51,10 @@ export class DataService {
     return this.http.get<Componente[]>('/assets/data/menu-opts.json');
   }
 
+  getSuperheroes(){
+    return this.http.get<Componente[]>('/assets/data/superheroes.json');
+  }
+
 
   getAlbums() {
     // Utilizamos el método get de HttpClient para hacer la petición
