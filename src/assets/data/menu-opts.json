@@ -118,5 +118,15 @@
     "icon": "copy-outline",
     "name": "Segment",
     "redirectTo": "/segment"
+  },
+  {
+    "icon": "bonfire-outline",
+    "name": "Skeleton",
+    "redirectTo": "/skeleton"
+  },
+  {
+    "icon": "albums-outline",
+    "name": "Slides - Swiper",
+    "redirectTo": "/slides-swiper"
   }
 ]

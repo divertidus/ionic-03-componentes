@@ -1,0 +1,59 @@
+.slide-full {
+    height: 100% !important;
+}
+
+ion-card {
+    overflow: hidden !important;
+    height: 300px !important; /* Altura fija para todas las tarjetas */
+    width: 250px !important; /* Ancho fijo para todas las tarjetas */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 10px auto; /* Centrar las tarjetas horizontalmente */
+}
+
+.slide-image {
+    width: 80px !important;
+    height: auto;
+    max-height: 80px; /* Limitar la altura de la imagen */
+    object-fit: contain; /* Mantener la proporción de la imagen */
+    margin-bottom: 15px;
+}
+
+ion-card-header {
+    width: 100%;
+    padding: 10px 0;
+}
+
+ion-card-subtitle {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+ion-card-content {
+    width: 100%;
+    padding: 0;
+    overflow-y: auto; /* Permitir scroll si el contenido es demasiado largo */
+    flex-grow: 1; /* Permitir que el contenido ocupe el espacio restante */
+}
+
+.avatar {
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para el contenedor de Swiper */
+swiper-container {
+    padding: 20px 0;
+}
+
+/* Estilo para cada slide individual */
+swiper-slide {
+    
+    justify-content: center;
+    align-items: center;
+}

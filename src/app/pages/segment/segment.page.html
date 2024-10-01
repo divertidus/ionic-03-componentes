@@ -32,12 +32,27 @@
 
 <ion-content [fullscreen]="false">
   <ion-list>
+    <!-- <ion-list *ngIf="loaded"> -->
+    <!-- *ngIf="loaded solo lo pongo por el skeleton, cuando loades está true se muestran datos, sino skeleton -->
     <!-- Directiva *ngFor para iterar sobre la lista de superhéroes -->
     <!-- (superheroes|async) convierte el Observable en un array -->
     <!-- El pipe 'filtro' se aplica después de la conversión async -->
     <!-- 'textoBuscar' es la variable que contiene el texto de filtrado -->
     <!-- 'publisher' es la propiedad por la que se filtra -->
-    <ion-item *ngFor="let heroe of (superheroes|async)|filtro:textoPublisher:'publisher'">
+    <!--   Aprovechemos que en otra tarea pusimos de https://animate.style/ las animaciones css para establecer alguna
+     Recordemos que lo descargamos mediante el terminal de VSC con el comando npm install animate.css --save
+     y luego enn el archivo angular.json buscamos la linea
+     "styles": ["src/global.scss", "src/theme/variables.scss"]
+     en mi caso era la 36
+     y la modificamos a 
+     "styles": ["src/global.scss", "src/theme/variables.scss","node_modules/animate.css/animate.min.css"],
+     añadiendo el modulo
+     Con eso y usando class="lo que tenga que ser" podremos usar animaciones. 
+     Con animate__animated le decimos que sea animado
+     Con animate__fadeIn el tipo de animacion. Hay muchas, consultar la web de https://animate.style/
+     Y con animate__faster aceleramos la animacion -->
+    <ion-item *ngFor="let heroe of (superheroes|async)|filtro:textoPublisher:'publisher'"
+      class="animate__animated animate__fadeIn animate__faster">
       <ion-label>
         <h3>{{heroe.superhero}} <small>{{heroe.alter_ego}}</small></h3>
         <p>{{heroe.first_appearance}}</p>
@@ -45,6 +60,35 @@
       <ion-label slot="end" class="ion-text-right">{{heroe.publisher}}</ion-label>
     </ion-item>
   </ion-list>
+
+
+
+  <!-- Con esto usariamos una variable de estado para enseñar o no el skeleton,
+    pero lo haremos mediante delay y la siguiente comprobacion en el ion-list del skeleton. Ambas formas valen -->
+  <!--  <ion-list *ngIf="!loaded"> -->
+
+
+  <!--     Con esto le digo que si lo obtenido del filtro es null se muetre el skeleton. 
+    Recordemos que está configurado un delay en el metodo getSuperheroes del dataservice para realizar eso. -->
+  <ion-list *ngIf="(superheroes|async) === null">
+    <ion-item *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]">
+      <!--  <ion-thumbnail slot="start">
+        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+      </ion-thumbnail> -->
+      <ion-label>
+        <h3>
+          <ion-skeleton-text [animated]="true" style="width: 70%;"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 90%;"></ion-skeleton-text>
+        </p>
+      </ion-label>
+
+      <ion-skeleton-text [animated]="true" style="width: 30%;" slot="end"></ion-skeleton-text>
+
+    </ion-item>
+  </ion-list>
+
 </ion-content>
 
 

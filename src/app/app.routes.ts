@@ -113,6 +113,14 @@ export const routes: Routes = [
     path: 'segment',
     loadComponent: () => import('./pages/segment/segment.page').then( m => m.SegmentPage)
   },
+  {
+    path: 'skeleton',
+    loadComponent: () => import('./pages/skeleton/skeleton.page').then( m => m.SkeletonPage)
+  },
+  {
+    path: 'slides-swiper',
+    loadComponent: () => import('./pages/slides-swiper/slides-swiper.page').then( m => m.SlidesSwiperPage)
+  },
   /* Esto lo comentamos porque no va a ser una ruta a la que vamos a navegar.
   { 
     path: 'modal-info',

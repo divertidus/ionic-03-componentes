@@ -1,0 +1,158 @@
+<app-header titulo="Slides - Swipper"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h1>Se usa Swiper y no Slides</h1>
+  <h3>En v6 de Ionic el ion-slides se estableció como deprecates y en v7 se retiró definitivamente.
+    Por tanto ignoramos el tutorial para este ejercicio y usaremos el swiper recomendado.
+  </h3>
+
+  <ion-list> <!-- Lista para contener los elementos -->
+
+    <ion-accordion-group>
+
+      <ion-accordion value="start">
+
+        <ion-item slot="header">
+
+          <ion-label>Pasos instalacion</ion-label>
+
+        </ion-item>
+        <div slot="content" class="ion-padding">
+          <ion-text>
+            <p><strong>Actualizar Ionic:</strong></p>
+            <code>npm install &#64;ionic/angular&#64;latest</code>
+
+            <p><strong>Instalar la dependencia de Swiper:</strong></p>
+            <code>npm install swiper&#64;latest</code>
+
+            <p><strong>En caso de no usar <code>app.module.ts</code> en v8, cambiar
+                <code>app.component.ts</code>:</strong></p>
+            <code>import &#123; CUSTOM_ELEMENTS_SCHEMA &#125; from '&#64;angular/core';</code>
+
+            <p><strong>Añadir el siguiente código para registrar Swiper:</strong></p>
+            <code>import &#123; register &#125; from 'swiper/element/bundle';</code>
+
+            <p><strong>Agregar el esquema:</strong></p>
+            <code>schemas: [CUSTOM_ELEMENTS_SCHEMA]</code>
+
+            <p><strong>Consulta este código HTML para más detalles del tutorial.</strong></p>
+          </ion-text>
+        </div>
+
+      </ion-accordion>
+
+    </ion-accordion-group>
+
+  </ion-list>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  <swiper-container>
+    <swiper-slide>Slide 1</swiper-slide>
+    <swiper-slide>Slide 2</swiper-slide>
+    <swiper-slide>Slide 3</swiper-slide>
+    <swiper-slide>Slide ...</swiper-slide>
+  </swiper-container>
+
+
+
+  <swiper-container class="slide-full">
+    <swiper-slide *ngFor="let item of slides">
+      <ion-card>
+        <ion-img class="slide-image" [src]="item.img"></ion-img>
+        <ion-card-header>
+          <ion-card-subtitle>{{item.titulo}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          {{item.desc}}
+        </ion-card-content>
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-button (click)="onClick()" expand="block" fill="clear">
+        Volver
+      </ion-button>
+    </swiper-slide>
+  </swiper-container>
+
+  <!-- 
+  <swiper-container>
+    <swiper-slide class="slide-1">Slide 1</swiper-slide>
+    <swiper-slide class="slide-2">Slide 2</swiper-slide>
+    <swiper-slide class="slide-3">Slide 3</swiper-slide>
+  </swiper-container> 
+  -->
+
+</ion-content>
+
+
+<!-- En Ionic 8, que sigue una estructura modularizada basada en componentes y 
+ no utiliza necesariamente un archivo app.module.ts, debes adaptarte usando el
+  archivo donde inicializas tu aplicación, como app.component.ts. Aquí te explico los pasos adaptados:
+
+1. Instalar las dependencias necesarias
+Si no lo has hecho ya, instala la versión más reciente de @ionic/angular y swiper con los siguientes comandos:
+
+bash
+Copiar código
+npm install @ionic/angular@latest
+npm install swiper@latest
+2. Configuración de CUSTOM_ELEMENTS_SCHEMA
+En lugar de modificar un app.module.ts, puedes agregar CUSTOM_ELEMENTS_SCHEMA 
+directamente en el decorador de tu componente principal. Si tu aplicación usa 
+una estructura sin un archivo app.module.ts, probablemente estés manejando las configuraciones
+ desde app.component.ts o desde los módulos específicos de cada página.
+
+En este caso, modifica el archivo app.component.ts o el archivo de la página donde uses Swiper:
+
+ts
+Copiar código
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { register } from 'swiper/element/bundle';
+
+register(); // Registra los elementos personalizados de Swiper
+
+@Component({
+  selector: 'app-root',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]  // Permite el uso de elementos personalizados como <swiper-container>
+})
+export class AppComponent {
+  ...
+}
+3. Uso de Swiper en el HTML
+Una vez hayas hecho el registro, puedes utilizar las etiquetas de Swiper en tus plantillas HTML. 
+Simplemente reemplaza los ion-slides y ion-slide por swiper-container y swiper-slide:
+
+html
+Copiar código
+<swiper-container>
+  <swiper-slide>Slide 1</swiper-slide>
+  <swiper-slide>Slide 2</swiper-slide>
+  <swiper-slide>Slide 3</swiper-slide>
+</swiper-container>
+Resumen de pasos
+Instala swiper y actualiza @ionic/angular.
+Agrega CUSTOM_ELEMENTS_SCHEMA en app.component.ts (o en el componente donde lo necesites).
+Registra los componentes de Swiper usando register() en app.component.ts.
+Reemplaza las etiquetas ion-slides por las de Swiper.
+Con esto, estarás utilizando Swiper en tu aplicación basada en Ionic 8.
+
+Si por ejemplo uso:
+ <swiper-container>
+    <swiper-slide>Slide 1</swiper-slide>
+    <swiper-slide>Slide 2</swiper-slide>
+    <swiper-slide>Slide 3</swiper-slide>
+  </swiper-container>
+
+  en el ts de la pagina debo realizar tambien
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { register } from 'swiper/element/bundle';
+register(); // Registra los elementos personalizados de Swiper
+
+para que funcione.
+ver tambien
+
+https://swiperjs.com/element#core-version-and-modules
+-->

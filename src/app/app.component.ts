@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { IonApp, IonRouterOutlet, IonToolbar, IonTitle, IonHeader,IonMenuToggle, IonContent, IonButtons, IonMenu, IonMenuButton, IonSplitPane, IonList, IonItem, IonIcon, IonLabel, IonBackButton, IonButton } from '@ionic/angular/standalone';
+import { Component, OnInit,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { IonApp, IonRouterOutlet, IonToolbar, IonTitle, IonHeader, IonMenuToggle, IonContent, IonButtons, IonMenu, IonMenuButton, IonSplitPane, IonList, IonItem, IonIcon, IonLabel, IonBackButton, IonButton } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import * as ionIcons from 'ionicons/icons';
 import { HeaderComponent } from "./components/header/header.component";
@@ -9,13 +9,15 @@ import { Observable } from 'rxjs';
 import { DataService } from './services/data.service';
 import { MenuController } from '@ionic/angular';
 import { AsyncPipe, NgForOf } from '@angular/common';
+import { register } from 'swiper/element/bundle';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [IonButton, IonBackButton, NgForOf,IonMenuToggle, RouterLink, AsyncPipe, IonLabel, IonIcon, IonItem, IonList, IonSplitPane, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, IonApp, IonRouterOutlet, IonMenu, IonMenuButton, HeaderComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [IonButton, IonBackButton, NgForOf, IonMenuToggle, RouterLink, AsyncPipe, IonLabel, IonIcon, IonItem, IonList, IonSplitPane, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, IonApp, IonRouterOutlet, IonMenu, IonMenuButton, HeaderComponent],
 })
 export class AppComponent implements OnInit {
 

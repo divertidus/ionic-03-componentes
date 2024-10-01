@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, SegmentChangeEventDetail, IonIcon, IonList, IonItem, IonButtons, IonBackButton } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonThumbnail, IonSegment, IonSegmentButton, IonLabel, SegmentChangeEventDetail, IonIcon, IonList, IonItem, IonButtons, IonBackButton, IonListHeader, IonSkeletonText, IonButton } from '@ionic/angular/standalone';
 import { HeaderComponent } from "../../components/header/header.component";
 import { IonSegmentCustomEvent } from '@ionic/core';
 import { DataService } from 'src/app/services/data.service';
@@ -16,12 +16,15 @@ import { FiltroPipe } from 'src/app/pipes/filtro.pipe';
   standalone: true,
   // Importaciones necesarias para el componente standalone
   // Incluye FiltroPipe para poder usarlo en el template
-  imports: [IonBackButton, IonButtons, IonItem, FiltroPipe, IonList, IonIcon, IonLabel, IonSegmentButton, IonSegment, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent]
+  imports: [IonButton, IonSkeletonText, IonListHeader, IonBackButton, IonThumbnail, IonButtons, IonItem, FiltroPipe, IonList, IonIcon, IonLabel, IonSegmentButton, IonSegment, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent]
 })
 export class SegmentPage implements OnInit {
   // ViewChild se usa para obtener una referencia al componente IonList en el template
   // Esto permite interactuar programáticamente con la lista si es necesario
   @ViewChild(IonList) ionList!: IonList
+
+  /*loaded: boolean = false; // Estra para skeleton*/
+
 
   // Variable para almacenar el texto de filtrado
   // Se actualiza cuando el usuario cambia el segmento
@@ -31,6 +34,7 @@ export class SegmentPage implements OnInit {
   // Se usa Observable para manejar datos asincrónicos de manera eficiente
   superheroes!: Observable<any>
 
+
   // Inyección del servicio DataService para obtener los datos de los superhéroes
   constructor(private dataService: DataService) { }
 
@@ -38,6 +42,21 @@ export class SegmentPage implements OnInit {
     // Inicialización del Observable de superhéroes
     // getSuperheroes() devuelve un Observable, permitiendo actualizaciones en tiempo real si los datos cambian
     this.superheroes = this.dataService.getSuperheroes();
+
+
+    /* 
+    El siguiente parametro es para el skeleton y el bloque comentado para simular unar carga previa
+    Pero vamos a modificar el metodo  de getSuperheroes del dataService para realizar ese retraso ahi con 
+    el metodo delay importable de rxjs/operators. Antes aqui esto se ejecutaba al cargar la pagina.
+    */
+
+    /*
+    this.loaded = false;
+    
+    setTimeout(() => {
+      this.loaded = !this.loaded;
+    }, 1000); 
+    */
   }
 
   // Método que se ejecuta cuando cambia el segmento seleccionado
@@ -46,7 +65,24 @@ export class SegmentPage implements OnInit {
     // Actualiza textoBuscar con el valor del segmento seleccionado
     // Esto desencadena el filtrado en el template
     this.textoPublisher = event.detail.value;
-    console.log(event.detail.value)
+
+    console.log("DESDE EL METODO DEL TS" + event.detail.value)
+
+
+    /* 
+    El siguiente parametro es para el skeleton y el bloque comentado para simular unar carga previa
+    Pero vamos a modificar el metodo  de getSuperheroes del dataService para realizar ese retraso ahi con 
+    el metodo delay importable de rxjs/operators. Antes aqui esto se ejecutaba a cada click en el titulo del segment
+    */
+
+    /*
+    this.loaded = false;
+
+     setTimeout(() => {
+      this.loaded = !this.loaded;
+    }, 1000); 
+
+    */
   }
 
 }
