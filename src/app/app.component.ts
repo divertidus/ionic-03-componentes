@@ -3,7 +3,7 @@ import { IonApp, IonRouterOutlet, IonToolbar, IonTitle, IonHeader, IonMenuToggle
 import { addIcons } from 'ionicons';
 import * as ionIcons from 'ionicons/icons';
 import { HeaderComponent } from "./components/header/header.component";
-import { RouterLink } from '@angular/router';
+import { RouterLink, Routes } from '@angular/router';
 import { Componente } from './interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { DataService } from './services/data.service';
@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
 
   componentes!: Observable<Componente[]>;
 
-
   constructor(
     private dataService: DataService,
     private menuCtrl: MenuController
@@ -31,13 +30,15 @@ export class AppComponent implements OnInit {
     addIcons(ionIcons);
   }
 
-
   ngOnInit() {
     this.componentes = this.dataService.getMenuOpts(); //
     this.componentes.subscribe(data => {
       console.log('Datos del menú:', data);
     });
   }
+
+
+  
 }
 // Este componente es el contenedor principal de tu aplicación
 // IonApp proporciona la estructura básica de una aplicación Ionic
