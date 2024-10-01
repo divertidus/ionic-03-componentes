@@ -1,0 +1,81 @@
+Aquí tienes los documentos guía actualizados para ejecutar tu proyecto en Ionic con o sin Live Reload.
+
+Guía para Ejecutar un Proyecto Existente con Live Reload
+Iniciar el PC y Abrir Visual Studio Code
+
+Asegúrate de tener Visual Studio Code abierto.
+Abrir la Terminal en Visual Studio Code
+
+Usa Ctrl + (tecla de tilde) para abrir la terminal.
+Navegar a la Carpeta del Proyecto
+
+bash
+Copiar código
+cd C:\Users\Trabajo Nacho\Desktop\ionic\03 - componentes
+Iniciar el Servidor de Ionic
+
+Ejecuta el siguiente comando:
+bash
+Copiar código
+npm run start -- --host=0.0.0.0 --port=8100
+Modificar el Archivo de Configuración
+
+Abre capacitor.config.ts y asegúrate de tener la configuración correcta para Live Reload. Debe verse así:
+javascript
+Copiar código
+import type { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  appId: 'io.ionic.starter',
+  appName: 'componentes',
+  webDir: 'www',
+  server: {
+    url: 'http://192.168.1.X:8100',  // Cambia "X" por el último número de tu IP local
+    cleartext: true
+  }
+};
+
+export default config;
+Ejecutar Live Reload
+
+Ejecuta el siguiente comando para iniciar Live Reload:
+bash
+Copiar código
+npx cap run android -l --external
+Verificar en el Emulador
+
+Abre la aplicación en el emulador y verifica que se cargue desde el servidor de Live Reload.
+Guía para Ejecutar un Proyecto Existente sin Live Reload
+Iniciar el PC y Abrir Visual Studio Code
+
+Asegúrate de tener Visual Studio Code abierto.
+Abrir la Terminal en Visual Studio Code
+
+Usa Ctrl + (tecla de tilde) para abrir la terminal.
+Navegar a la Carpeta del Proyecto
+
+bash
+Copiar código
+cd C:\Users\Trabajo Nacho\Desktop\ionic\03 - componentes
+Eliminar la Línea de URL en Configuración
+
+Abre capacitor.config.ts y elimina o comenta la sección del servidor:
+javascript
+Copiar código
+server: {
+  url: 'http://192.168.1.X:8100',  // Eliminar o comentar esta línea
+  cleartext: true
+},
+Ejecutar el Comando para Construir y Ejecutar
+
+bash
+Copiar código
+npx cap run android
+Verificar en el Emulador
+
+Abre la aplicación en el emulador y verifica que funcione correctamente como una aplicación standalone.
+Notas Importantes
+Para Live Reload: La línea de url en capacitor.config.ts debe estar presente.
+Para Ejecución Standalone: Debes eliminar o comentar la línea de url en capacitor.config.ts.
+Compilación sin Live Reload: Si previamente usaste Live Reload y luego ejecutas sin modificar el código, asegúrate de que la aplicación esté usando el código en el directorio www.
+Esto debería proporcionarte un proceso claro y simple para trabajar con tu proyecto en Ionic. Si necesitas más detalles o aclaraciones, ¡hazme saber!

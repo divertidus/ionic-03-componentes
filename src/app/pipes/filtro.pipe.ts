@@ -12,7 +12,8 @@ export class FiltroPipe implements PipeTransform {
     columna: string = 'title' // La columna del array que queremos filtrar, por defecto 'title'
   ): any[] {
 
-    console.log(array); // Imprime el array original
+    console.log(array);
+    console.log(JSON.stringify(array)); // Imprime el array original
     console.log(texto); // Imprime el texto de búsqueda
 
     // Si no hay texto de búsqueda, devuelve el array completo
@@ -53,7 +54,7 @@ export class FiltroPipe implements PipeTransform {
 
       // <ion-item *ngFor="let album of albunes | filtro:textoBuscar:'title'">
 
-          // Para cada elemento del array, comprueba si el valor de la columna especificada
+      // Para cada elemento del array, comprueba si el valor de la columna especificada
       // (convertido a minúsculas) incluye el texto de búsqueda
       item => item[columna].toLowerCase().includes(texto)
     )
