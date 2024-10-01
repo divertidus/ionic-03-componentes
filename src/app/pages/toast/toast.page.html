@@ -1,0 +1,70 @@
+<app-header titulo="Toast"></app-header>
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-list>
+
+
+    <h2>Toast con Triggers (recomendado)</h2>
+    <ion-item>
+      <ion-button id="open-toast" expand="block">Mostrar Toast Trigger</ion-button>
+      <ion-toast trigger="open-toast" message="Este Toast se muestra por un trigger en el boton, no un método."
+        [duration]="3000"></ion-toast>
+    </ion-item>
+
+
+
+  </ion-list>
+
+  <ion-list>
+    <h2>Toast con método y comprueba si abierto</h2>
+    <ion-item>
+      <ion-button expand="block" (click)="setOpen(true)">Pinchame</ion-button>
+      <ion-toast [isOpen]="isToastOpen"
+        message="Toast con metodo que comprueba con variable si hay toast abierto true, y tras el tiempo lo pone a false."
+        [duration]="3000" (didDismiss)="setOpen(false)"></ion-toast>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <h2>Toast con Triggers</h2>
+    <ion-item>
+      <ion-button expand="block" (click)="presentToast('top')">Toast arriba, con controlador.</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-button expand="block" (click)="presentToast('middle')">Toast en el centro, con controlador.</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-button expand="block" (click)="presentToast('bottom')">Toast abajo, con controlador.</ion-button>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list>
+    <h2>Toast con botones</h2>
+    <ion-item>
+      <ion-button id="open-toast-buttons">Abrir Toast con botones</ion-button>
+      <ion-toast trigger="open-toast-buttons" message="Soy un Toast y tengo botones !!" [duration]="3000"
+        [buttons]="toastButtons" (didDismiss)="setRoleMessage($event)"></ion-toast>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <h2>Toast con icono</h2>
+    <ion-item>
+      <ion-button id="open-toast-icono">Abreme y mira mi icono</ion-button>
+      <ion-toast trigger="open-toast-icono" message="Soy un Toast con un icono!" [duration]="3000"
+        icon="globe"></ion-toast>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <h2>Más ejemplos en la web de Ionic</h2>
+  </ion-list>
+
+
+
+</ion-content>
