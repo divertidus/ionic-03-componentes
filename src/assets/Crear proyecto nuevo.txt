@@ -1,0 +1,25 @@
+Como Iniciar proyecto.
+
+
+Crear carpeta proyecto.
+
+Abrir cmd y ubicar en la ruta de la carpeta
+
+	ionic start nombredelproyecto blank
+
+Elegir framework. Por ahora Angular
+
+Integrar Capacitor -> si ( se puede hacer despues ) 
+
+Esperar
+
+Una vez termina, crear o no cuenta de Ionic ( no necesario ) 
+
+Si hace falta renombrar la carpeta de componentes si es necesario por gusto.
+
+Arrastar la carpeta a visual studio code o abrir dicha carpeta desde el programa.
+
+ionic serve en la ruta de la carpeta para tener accedo al emulador web. La primera vez tarda un poco.
+
+--------------
+

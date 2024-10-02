@@ -1,11 +1,11 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'io.ionic.nachoComponentes',
   appName: 'componentes',
   webDir: 'www',
   server: {/* 
-    url: 'http://192.168.1.162:8100',  // Sustituye "X" por el valor correspondiente de tu IP local */
+    url: 'http://192.168.1.162:8100',  // Sustituye "X" por el valor correspondiente de tu IP local, si no fucniona lanzar el comando con el puerto e ip que sea */
     cleartext: true
   }
 };
